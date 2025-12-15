@@ -9,3 +9,6 @@ pytesseract
 opencv-python
 requests
 ultralytics
+streamlit
+opencv
+matplotlib
