@@ -1,0 +1,8 @@
+tmp/
+__pycache__/
+.env/
+.idea/
+data/
+test.py
+.venv
+report/.~lock.halal-logo-detection-system-report.docx#
