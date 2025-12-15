@@ -7,6 +7,10 @@ import joblib
 from PIL import Image
 import pytesseract as ocr
 import requests
+import os
+
+# Get the directory where main.py is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # -------------------------------------------------------
 # Streamlit Config
@@ -24,13 +28,13 @@ st.markdown("<p style='text-align:center;'>Detect Halal Logos, Scan Barcodes & C
 # -------------------------------------------------------
 @st.cache_resource
 def load_yolo_model():
-    return YOLO("halal_logo_detector.pt")
+    return YOLO(os.path.join(SCRIPT_DIR, "halal_logo_detector.pt"))
 
 halal_model = load_yolo_model()
 
 @st.cache_resource
 def load_classifier():
-    return joblib.load("halal_haram_classifier.pkl")
+    return joblib.load(os.path.join(SCRIPT_DIR, "halal_haram_classifier.pkl"))
 
 ingredient_classifier = load_classifier()
 
